@@ -5,18 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Firepits</title>
     <style>
-        /* Similar styling as braais.html */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .subheading {
+            font-size: 1.5em;
+            color: #333;
+            margin-top: 20px;
+        }
+
+        .subheading-container {
+            display: flex;
+            flex-wrap: wrap; /* Allows the images to wrap onto the next line */
+            justify-content: center; /* Centers items horizontally */
+            margin: 20px 0; /* Space between subheading and pictures */
+        }
+
+        .picture {
+            margin: 10px; /* Space around each picture */
+            text-align: center; /* Centers text under the picture */
+        }
+
+        .picture img {
+            max-width: 150px; /* Set a maximum width for the images */
+            height: auto;
+        }
+
+        .back {
+            margin-top: 20px;
+            font-size: 1em;
+            text-decoration: none;
+            color: blue;
+        }
     </style>
 </head>
 <body>
     <div class="subheading">Firepits</div>
-    <div>
-        <div class="subheading">Electronic</div>
+    <div class="subheading-container">
         <div class="picture">
+            <div class="subheading">Electronic</div>
             <img src="electronic-firepit.jpg" alt="Electronic Firepit">
         </div>
-        <div class="subheading">Manual</div>
         <div class="picture">
+            <div class="subheading">Manual</div>
             <img src="manual-firepit.jpg" alt="Manual Firepit">
         </div>
     </div>

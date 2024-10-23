@@ -16,8 +16,20 @@
             margin-top: 20px;
         }
 
+        .subheading-container {
+            display: flex;
+            flex-wrap: wrap; /* Allows the images to wrap onto the next line */
+            justify-content: center; /* Centers items horizontally */
+            margin: 20px 0; /* Space between subheading and pictures */
+        }
+
+        .picture {
+            margin: 10px; /* Space around each picture */
+            text-align: center; /* Centers text under the picture */
+        }
+
         .picture img {
-            max-width: 100px;
+            max-width: 150px; /* Set a maximum width for the images */
             height: auto;
         }
 
@@ -31,17 +43,17 @@
 </head>
 <body>
     <div class="subheading">Braais</div>
-    <div>
-        <div class="subheading">Mobile</div>
+    <div class="subheading-container">
         <div class="picture">
+            <div class="subheading">Mobile</div>
             <img src="mobile-braai.jpg" alt="Mobile Braai">
         </div>
-        <div class="subheading">Drop-in</div>
         <div class="picture">
+            <div class="subheading">Drop-in</div>
             <img src="drop-in-braai.jpg" alt="Drop-in Braai">
         </div>
-        <div class="subheading">Built-in</div>
         <div class="picture">
+            <div class="subheading">Built-in</div>
             <img src="built-in-braai.jpg" alt="Built-in Braai">
         </div>
     </div>
