@@ -4,10 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Braais</title>
+
+    <!-- Import Source Sans Pro from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
+
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Source Sans Pro', sans-serif;
             text-align: center;
+        }
+
+        .main-heading {
+            font-size: 2em; /* Make the main heading larger */
+            font-weight: bold; /* Make it bold */
+            color: #333;
+            margin-top: 20px;
         }
 
         .subheading {
@@ -17,21 +28,19 @@
         }
 
         .subheading-container {
-            display: flex;
-            flex-wrap: wrap; /* Allows the images to wrap onto the next line */
-            justify-content: center; /* Centers items horizontally */
-            margin: 20px 0; /* Space between subheading and pictures */
+            display: block; /* Stack headings vertically */
+            margin: 20px 0;
         }
 
         .picture {
-            margin: 10px; /* Space around each picture */
-            text-align: center; /* Centers text under the picture */
+            margin: 10px 0; /* Space between sections */
+            text-align: center;
         }
 
         .picture img {
-            max-width: 150px; /* Set a maximum width for the images */
-            height: auto;
-            cursor: pointer; /* Changes cursor to pointer when hovering over image */
+            width: 300px; /* Set all images to the same width */
+            height: auto; /* Maintain aspect ratio */
+            max-width: 100%; /* Ensure responsiveness */
         }
 
         .back {
@@ -43,21 +52,30 @@
     </style>
 </head>
 <body>
-    <div class="subheading">Braais</div>
+    <div class="main-heading">Braais</div>
+    
     <div class="subheading-container">
+        <div class="subheading">Mobile</div>
         <div class="picture">
-            <div class="subheading"><a href="mobile.html">Mobile</a></div>
             <a href="mobile.html"><img src="mobile-braai.jpg" alt="Mobile Braai"></a>
         </div>
+        
+        <div class="subheading">Drop-in</div>
         <div class="picture">
-            <div class="subheading"><a href="drop-in.html">Drop-in</a></div>
             <a href="drop-in.html"><img src="drop-in-braai.jpg" alt="Drop-in Braai"></a>
         </div>
+
+        <div class="subheading">Hob Style Grills</div>
         <div class="picture">
-            <div class="subheading"><a href="built-in.html">Built-in</a></div>
+            <a href="hob-style-grills.html"><img src="griller_pro_6.png" alt="Griller Pro 6"></a>
+        </div>
+
+        <div class="subheading">Built-in</div>
+        <div class="picture">
             <a href="built-in.html"><img src="built-in-braai.jpg" alt="Built-in Braai"></a>
         </div>
     </div>
+
     <a class="back" href="index.html">Back</a>
 </body>
 </html>
