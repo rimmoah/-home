@@ -1,0 +1,29 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    text-align: center;
+    display: flex;              /* Use flexbox */
+    flex-direction: column;     /* Stack items vertically */
+    align-items: center;        /* Center items horizontally */
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Resize the image to half its size */
+img {
+    max-width: 50%; /* Set image to half the width */
+    height: auto;
+    display: none;  /* Initially hide the image */
+}
