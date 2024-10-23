@@ -3,16 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Simple Web App</title>
+    <title>Product Categories</title>
+    <style>
+        .subheadings {
+            display: none;
+            margin-left: 20px;
+        }
+
+        .heading {
+            cursor: pointer;
+            font-size: 1.5em;
+            color: #333;
+            margin-top: 10px;
+        }
+
+        .subheading {
+            font-size: 1.2em;
+            color: #555;
+        }
+
+        .picture {
+            margin-left: 40px;
+        }
+
+        img {
+            max-width: 100px;
+            height: auto;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <button id="myButton">Press Me</button>
-        <p id="message"></p>
-        <!-- Image is initially hidden -->
-        <img id="bugsImage" src="bugs_bunny.jpg" alt="Bugs Bunny" style="display: none;">
+    <div class="heading" onclick="toggleSubheadings('braais')">Braais</div>
+    <div id="braais" class="subheadings">
+        <div class="subheading">Mobile</div>
+        <div class="picture">
+            <img src="mobile-braai.jpg" alt="Mobile Braai">
+        </div>
+        <div class="subheading">Drop-in</div>
+        <div class="picture">
+            <img src="drop-in-braai.jpg" alt="Drop-in Braai">
+        </div>
+        <div class="subheading">Built-in</div>
+        <div class="picture">
+            <img src="built-in-braai.jpg" alt="Built-in Braai">
+        </div>
     </div>
-    <script src="script.js"></script>
+
+    <div class="heading" onclick="toggleSubheadings('fireplaces')">Fireplaces</div>
+    <div id="fireplaces" class="subheadings">
+        <div class="subheading">Electronic</div>
+        <div class="picture">
+            <img src="electronic-fireplace.jpg" alt="Electronic Fireplace">
+        </div>
+        <div class="subheading">Manual</div>
+        <div class="picture">
+            <img src="manual-fireplace.jpg" alt="Manual Fireplace">
+        </div>
+    </div>
+
+    <div class="heading" onclick="toggleSubheadings('firepits')">Firepits</div>
+    <div id="firepits" class="subheadings">
+        <div class="subheading">Electronic</div>
+        <div class="picture">
+            <img src="electronic-firepit.jpg" alt="Electronic Firepit">
+        </div>
+        <div class="subheading">Manual</div>
+        <div class="picture">
+            <img src="manual-firepit.jpg" alt="Manual Firepit">
+        </div>
+    </div>
+
+    <div class="heading" onclick="toggleSubheadings('accessories')">Accessories</div>
+    <div id="accessories" class="subheadings">
+        <div class="subheading">Hood Extractors</div>
+        <div class="picture">
+            <img src="hood-extractor.jpg" alt="Hood Extractor">
+        </div>
+        <div class="subheading">Gas Cages</div>
+        <div class="picture">
+            <img src="gas-cage.jpg" alt="Gas Cage">
+        </div>
+        <div class="subheading">Gas Geysers</div>
+        <div class="picture">
+            <img src="gas-geyser.jpg" alt="Gas Geyser">
+        </div>
+        <div class="subheading">Torches</div>
+        <div class="picture">
+            <img src="torch.jpg" alt="Torch">
+        </div>
+    </div>
+
+    <script>
+        function toggleSubheadings(id) {
+            var element = document.getElementById(id);
+            if (element.style.display === "none" || element.style.display === "") {
+                element.style.display = "block";
+            } else {
+                element.style.display = "none";
+            }
+        }
+    </script>
 </body>
 </html>
