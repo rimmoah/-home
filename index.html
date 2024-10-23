@@ -28,7 +28,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            width: 200px;
+            width: 200px; /* Default width for larger screens */
             margin: 10px;
         }
 
@@ -41,6 +41,19 @@
         .picture img {
             max-width: 100px;
             height: auto;
+        }
+
+        /* Media Query for Smaller Screens */
+        @media (max-width: 600px) {
+            .subheading-container {
+                width: 45%; /* Adjusts the width for smaller screens */
+            }
+        }
+
+        @media (max-width: 400px) {
+            .subheading-container {
+                width: 100%; /* Stacks subheadings on very narrow screens */
+            }
         }
     </style>
 </head>
@@ -131,7 +144,7 @@
         function toggleSubheadings(id) {
             var element = document.getElementById(id);
             if (element.style.display === "none" || element.style.display === "") {
-                element.style.display = "flex";
+                element.style.display = "flex"; // Change to flex to maintain layout
             } else {
                 element.style.display = "none";
             }
