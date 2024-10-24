@@ -4,55 +4,73 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Built-in Braais</title>
+
+    <!-- Import Source Sans Pro from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
+
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Source Sans Pro', sans-serif;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             text-align: center;
         }
 
-        .subheading {
-            font-size: 1.5em;
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .main-heading {
+            font-size: 2em;
+            font-weight: bold;
             color: #333;
-            margin-top: 20px;
+            margin-bottom: 30px;
         }
 
         .subheading-container {
-            display: flex;
-            flex-wrap: wrap; /* Allows the images to wrap onto the next line */
-            justify-content: center; /* Centers items horizontally */
-            margin: 20px 0; /* Space between subheading and pictures */
+            margin: 20px 0;
         }
 
-        .picture {
-            margin: 10px; /* Space around each picture */
-            text-align: center; /* Centers text under the picture */
+        .subheading a {
+            font-size: 1.5em;
+            color: #000;
+            text-decoration: none;
+            display: block;
+            margin: 10px 0;
         }
 
-        .picture img {
-            max-width: 150px; /* Set a maximum width for the images */
-            height: auto;
+        .subheading a:hover {
+            text-decoration: underline;
         }
 
         .back {
             margin-top: 20px;
             font-size: 1em;
             text-decoration: none;
-            color: blue;
+            color: black;
         }
     </style>
 </head>
 <body>
-    <div class="subheading">Built-in Braais</div>
-    <div class="subheading-container">
-        <div class="picture">
-            <div class="subheading">Black</div>
-            <img src="black.jpg" alt="Black Braai">
+    <div class="container">
+        <div class="main-heading">Built-in Braais</div>
+        
+        <div class="subheading-container">
+            <div class="subheading">
+                <a href="black.html">Black</a>
+            </div>
+            
+            <div class="subheading">
+                <a href="stainless.html">Stainless</a>
+            </div>
         </div>
-        <div class="picture">
-            <div class="subheading">Stainless</div>
-            <img src="stainless.jpg" alt="Stainless Braai">
-        </div>
+
+        <a class="back" href="braais.html">Back</a>
     </div>
-    <a class="back" href="braais.html">Back</a>
 </body>
 </html>

@@ -4,55 +4,77 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fireplaces</title>
+
+    <!-- Import Source Sans Pro from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
+
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Source Sans Pro', sans-serif;
+            height: 100vh; /* Full viewport height */
+            margin: 0;
+            display: flex;
+            justify-content: center; /* Horizontally center */
+            align-items: center; /* Vertically center */
             text-align: center;
         }
 
-        .subheading {
-            font-size: 1.5em;
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .main-heading {
+            font-size: 2em; /* Larger main heading */
+            font-weight: bold; /* Bold for emphasis */
             color: #333;
-            margin-top: 20px;
+            margin-bottom: 30px;
         }
 
         .subheading-container {
-            display: flex;
-            flex-wrap: wrap; /* Allows the images to wrap onto the next line */
-            justify-content: center; /* Centers items horizontally */
-            margin: 20px 0; /* Space between subheading and pictures */
+            margin: 20px 0;
         }
 
-        .picture {
-            margin: 10px; /* Space around each picture */
-            text-align: center; /* Centers text under the picture */
+        .subheading a {
+            font-size: 1.5em;
+            color: #000; /* Black text */
+            text-decoration: none;
+            display: block;
+            margin: 10px 0;
         }
 
-        .picture img {
-            max-width: 150px; /* Set a maximum width for the images */
-            height: auto;
+        .subheading a:hover {
+            text-decoration: underline; /* Underline on hover */
         }
 
         .back {
             margin-top: 20px;
             font-size: 1em;
             text-decoration: none;
-            color: blue;
+            color: black; /* Black text for back button */
+        }
+
+        .back:hover {
+            text-decoration: underline; /* Underline on hover */
         }
     </style>
 </head>
 <body>
-    <div class="subheading">Fireplaces</div>
-    <div class="subheading-container">
-        <div class="picture">
-            <div class="subheading">Electronic</div>
-            <img src="electronic-fireplace.jpg" alt="Electronic Fireplace">
+    <div class="container">
+        <div class="main-heading">Fireplaces</div>
+        
+        <div class="subheading-container">
+            <div class="subheading">
+                <a href="electronic.html">Electronic</a>
+            </div>
+            
+            <div class="subheading">
+                <a href="manual.html">Manual</a>
+            </div>
         </div>
-        <div class="picture">
-            <div class="subheading">Manual</div>
-            <img src="manual-fireplace.jpg" alt="Manual Fireplace">
-        </div>
+
+        <a class="back" href="index.html">Back</a>
     </div>
-    <a class="back" href="index.html">Back</a>
 </body>
 </html>

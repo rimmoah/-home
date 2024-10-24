@@ -11,71 +11,74 @@
     <style>
         body {
             font-family: 'Source Sans Pro', sans-serif;
+            height: 100vh; /* Full viewport height */
+            margin: 0;
+            display: flex;
+            justify-content: center; /* Horizontally center */
+            align-items: center; /* Vertically center */
             text-align: center;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .main-heading {
-            font-size: 2em; /* Make the main heading larger */
-            font-weight: bold; /* Make it bold */
+            font-size: 2em; /* Larger main heading */
+            font-weight: bold; /* Bold for emphasis */
             color: #333;
-            margin-top: 20px;
-        }
-
-        .subheading {
-            font-size: 1.5em;
-            color: #333;
-            margin-top: 20px;
+            margin-bottom: 30px;
         }
 
         .subheading-container {
-            display: block; /* Stack headings vertically */
             margin: 20px 0;
         }
 
-        .picture {
-            margin: 10px 0; /* Space between sections */
-            text-align: center;
+        .subheading a {
+            font-size: 1.5em;
+            color: #000; /* Black text */
+            text-decoration: none;
+            display: block;
+            margin: 10px 0;
         }
 
-        .picture img {
-            width: 300px; /* Set all images to the same width */
-            height: auto; /* Maintain aspect ratio */
-            max-width: 100%; /* Ensure responsiveness */
+        .subheading a:hover {
+            text-decoration: underline; /* Underline on hover */
         }
 
         .back {
             margin-top: 20px;
             font-size: 1em;
             text-decoration: none;
-            color: blue;
+            color: black;
         }
     </style>
 </head>
 <body>
-    <div class="main-heading">Braais</div>
-    
-    <div class="subheading-container">
-        <div class="subheading">Mobile</div>
-        <div class="picture">
-            <a href="mobile.html"><img src="mobile-braai.jpg" alt="Mobile Braai"></a>
-        </div>
+    <div class="container">
+        <div class="main-heading">Braais</div>
         
-        <div class="subheading">Drop-in</div>
-        <div class="picture">
-            <a href="drop-in.html"><img src="drop-in-braai.jpg" alt="Drop-in Braai"></a>
+        <div class="subheading-container">
+            <div class="subheading">
+                <a href="mobile.html">Mobile</a>
+            </div>
+            
+            <div class="subheading">
+                <a href="drop-in.html">Drop-in</a>
+            </div>
+
+            <div class="subheading">
+                <a href="hob-style-grills.html">Hob Style Grills</a>
+            </div>
+
+            <div class="subheading">
+                <a href="built-in.html">Built-in</a>
+            </div>
         </div>
 
-        <div class="subheading">Hob Style Grills</div>
-        <div class="picture">
-            <a href="hob-style-grills.html"><img src="griller_pro_6.png" alt="Griller Pro 6"></a>
-        </div>
-
-        <div class="subheading">Built-in</div>
-        <div class="picture">
-            <a href="built-in.html"><img src="built-in-braai.jpg" alt="Built-in Braai"></a>
-        </div>
+        <a class="back" href="index.html">Back</a>
     </div>
-
-    <a class="back" href="index.html">Back</a>
 </body>
 </html>

@@ -14,37 +14,45 @@
             text-align: center;
         }
 
-        .subheading {
-            font-size: 1.8em;
+        .main-heading {
+            font-size: 2em;
             font-weight: bold;
             color: #333;
             margin-top: 20px;
         }
 
-        .picture-container {
+        .subheading-container {
             margin: 20px 0;
         }
 
+        .picture {
+            margin: 10px;
+            text-align: center;
+        }
+
         .picture img {
-            width: 800px; /* Increase image size to 600px */
-            height: auto; /* Maintain aspect ratio */
-            max-width: 100%; /* Ensure responsiveness */
+            max-width: 400px;
+            height: auto;
         }
 
         .back {
             margin-top: 20px;
             font-size: 1em;
             text-decoration: none;
-            color: blue;
+            color: black; /* Make the back button text black */
+        }
+
+        .back:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
-    <div class="subheading">Hob Style Grills</div>
+    <div class="main-heading">Hob Style Grills</div>
     
-    <div class="picture-container">
+    <div class="subheading-container">
         <div class="picture">
-            <img src="griller_pro_6.png" alt="Griller Pro 6">
+            <img src="griller_pro_6.png" alt="Hob Style Grill">
         </div>
     </div>
 

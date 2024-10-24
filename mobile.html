@@ -4,56 +4,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mobile Braais</title>
+
+    <!-- Import Source Sans Pro from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
+
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Source Sans Pro', sans-serif;
             text-align: center;
         }
 
-        .subheading {
-            font-size: 1.5em;
+        .main-heading {
+            font-size: 2em;
+            font-weight: bold;
             color: #333;
             margin-top: 20px;
         }
 
         .subheading-container {
-            display: flex;
-            flex-wrap: wrap; /* Allows the images to wrap onto the next line */
-            justify-content: center; /* Centers items horizontally */
-            margin: 20px 0; /* Space between subheading and pictures */
+            margin: 20px 0;
         }
 
         .picture {
-            margin: 10px; /* Space around each picture */
-            text-align: center; /* Centers text under the picture */
+            margin: 10px;
+            text-align: center;
         }
 
         .picture img {
-            width: auto; /* Allow images to maintain their original width */
-            height: auto; /* Allow images to maintain their original height */
-            max-width: 100%; /* Prevent images from overflowing the container */
+            max-width: 400px;
+            height: auto;
         }
 
         .back {
             margin-top: 20px;
             font-size: 1em;
             text-decoration: none;
-            color: blue;
+            color: black; /* Make the back button text black */
+        }
+
+        .back:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
-    <div class="subheading">Mobile Braais</div>
+    <div class="main-heading">Mobile Braais</div>
+    
     <div class="subheading-container">
         <div class="picture">
-            <div class="subheading">Elite 10</div>
-            <img src="elite_10.png" alt="Elite Braai">
-        </div>
-        <div class="picture">
-            <div class="subheading">Exclusive 8</div>
-            <img src="exclusive_8.png" alt="Exclusive Braai">
+            <img src="elite_10.png" alt="Mobile Braai Elite 10">
         </div>
     </div>
+
     <a class="back" href="braais.html">Back</a>
 </body>
 </html>
