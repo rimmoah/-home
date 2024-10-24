@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Main Page</title>
+    <title>Password Protected Page</title>
 
     <!-- Import Source Sans Pro from Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
@@ -11,11 +11,11 @@
     <style>
         body {
             margin: 0;
-            height: 100vh; /* Set the height to fill the viewport */
+            height: 100vh;
             display: flex;
-            justify-content: center; /* Horizontally center the content */
-            align-items: center; /* Vertically center the content */
-            font-family: 'Source Sans Pro', sans-serif; /* Apply Source Sans Pro */
+            justify-content: center;
+            align-items: center;
+            font-family: 'Source Sans Pro', sans-serif;
         }
 
         .container {
@@ -25,7 +25,7 @@
         .heading {
             font-size: 2em;
             margin: 20px 0;
-            font-weight: 600; /* Make headings a bit bolder */
+            font-weight: 600;
         }
 
         a {
@@ -34,12 +34,46 @@
         }
 
         a:hover {
-            color: #007BFF; /* Change color on hover */
+            color: #007BFF;
+        }
+
+        .password-prompt {
+            display: none;
         }
     </style>
+
+    <script>
+        // A simple SHA-256 hashing function (using Web Crypto API)
+        async function hashPassword(password) {
+            const msgUint8 = new TextEncoder().encode(password); // encode as (utf-8) Uint8Array
+            const hashBuffer = await crypto.subtle.digest('SHA-256', msgUint8); // hash the message
+            const hashArray = Array.from(new Uint8Array(hashBuffer)); // convert buffer to byte array
+            return hashArray.map(b => b.toString(16).padStart(2, '0')).join(''); // convert bytes to hex string
+        }
+
+        async function checkPassword() {
+            var password = prompt("Please enter the password:");
+            const hashedPassword = await hashPassword(password);
+            const correctHash = "bdd65dcd9f231498fa89dad79b0e7263536b90125bd7f2a4900c5f7e23552a10"; // Replace with your hashed password
+            if (hashedPassword === correctHash) {
+                document.getElementById("content").style.display = "block";
+                document.getElementById("password-prompt").style.display = "none";
+            } else {
+                alert("Incorrect password. Access denied.");
+            }
+        }
+
+        window.onload = function() {
+            checkPassword();
+        };
+    </script>
 </head>
 <body>
-    <div class="container">
+    <div id="password-prompt">
+        <h1>Enter Password to Access Content</h1>
+    </div>
+
+    <div class="container" id="content" style="display:none;">
         <div class="heading"><a href="braais.html">Braais</a></div>
         <div class="heading"><a href="fireplaces.html">Fireplaces</a></div>
         <div class="heading"><a href="firepits.html">Firepits</a></div>
