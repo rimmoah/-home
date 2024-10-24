@@ -52,6 +52,9 @@
             font-size: 1em;
             text-decoration: none;
             color: black; /* Make the back button text black */
+            position: absolute; /* Make the back button draggable */
+            user-select: none; /* Prevent text selection while dragging */
+            cursor: move; /* Change cursor to indicate draggable */
         }
 
         .back:hover {
@@ -68,6 +71,8 @@
             border: none; /* Remove border */
             border-radius: 5px; /* Rounded corners */
             cursor: pointer; /* Pointer cursor on hover */
+            position: absolute; /* Make the save button draggable */
+            user-select: none; /* Prevent text selection while dragging */
         }
     </style>
 </head>
@@ -139,6 +144,8 @@
             const mainHeading = document.querySelector('.main-heading');
             const subheadingContainer = document.querySelector('.subheading-container');
             const img = document.querySelector('.picture img');
+            const backButton = document.querySelector('.back');
+            const saveButton = document.getElementById('saveButton');
 
             // Generate HTML content
             const newHtml = `
@@ -191,9 +198,26 @@
             font-size: 1em;
             text-decoration: none;
             color: black;
+            position: absolute;
+            left: ${backButton.style.left};
+            top: ${backButton.style.top};
         }
         .back:hover {
             text-decoration: underline;
+        }
+        #saveButton {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            position: absolute;
+            left: ${saveButton.style.left};
+            top: ${saveButton.style.top};
         }
     </style>
 </head>
@@ -205,6 +229,7 @@
         </div>
     </div>
     <a class="back" href="braais.html">Back</a>
+    <button id="saveButton">Save Layout</button>
 </body>
 </html>`;
 
@@ -220,10 +245,12 @@
             URL.revokeObjectURL(url);
         }
 
-        // Make headings and images draggable and persistent
+        // Make headings, image, buttons draggable and persistent
         makeDraggable(document.querySelector('.main-heading'), 'main-heading-position');
         makeDraggable(document.querySelector('.subheading-container'), 'subheading-position');
-        makeDraggable(document.querySelector('.picture'), 'image-position'); // Use the picture container for dragging
+        makeDraggable(document.querySelector('.picture'), 'image-position');
+        makeDraggable(document.querySelector('.back'), 'back-button-position'); // Make back button draggable
+        makeDraggable(document.getElementById('saveButton'), 'save-button-position'); // Make save button draggable
 
         // Add event listener to the save button
         document.getElementById('saveButton').addEventListener('click', saveLayout);
