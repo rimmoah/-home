@@ -12,6 +12,9 @@
         body {
             font-family: 'Source Sans Pro', sans-serif;
             text-align: center;
+            position: relative; /* Set position to relative for dragging */
+            height: 100vh; /* Set height for body */
+            overflow: hidden; /* Hide overflow to prevent scrollbars */
         }
 
         .main-heading {
@@ -19,10 +22,14 @@
             font-weight: bold;
             color: #333;
             margin-top: 20px;
+            cursor: move; /* Change cursor to indicate draggable */
+            position: absolute; /* Make the heading draggable */
         }
 
         .subheading-container {
             margin: 20px 0;
+            position: absolute; /* Make the container draggable */
+            cursor: move; /* Change cursor to indicate draggable */
         }
 
         .picture {
@@ -33,6 +40,8 @@
         .picture img {
             max-width: 400px;
             height: auto;
+            cursor: move; /* Change cursor to indicate draggable */
+            position: absolute; /* Make the image draggable */
         }
 
         .back {
@@ -57,5 +66,55 @@
     </div>
 
     <a class="back" href="braais.html">Back</a>
+
+    <script>
+        // Function to make elements draggable and save their positions
+        function makeDraggable(element, key) {
+            let offsetX, offsetY;
+
+            // Load saved position from localStorage
+            const savedPosition = JSON.parse(localStorage.getItem(key));
+            if (savedPosition) {
+                element.style.left = savedPosition.left;
+                element.style.top = savedPosition.top;
+            }
+
+            element.addEventListener('mousedown', (e) => {
+                offsetX = e.clientX - element.getBoundingClientRect().left;
+                offsetY = e.clientY - element.getBoundingClientRect().top;
+
+                // Set the dragging state
+                element.style.zIndex = 1000; // Bring to front
+                document.addEventListener('mousemove', onMouseMove);
+                document.addEventListener('mouseup', onMouseUp);
+            });
+
+            function onMouseMove(e) {
+                const newX = e.clientX - offsetX;
+                const newY = e.clientY - offsetY;
+                element.style.left = `${newX}px`;
+                element.style.top = `${newY}px`;
+            }
+
+            function onMouseUp() {
+                // Remove the event listeners when the mouse is released
+                document.removeEventListener('mousemove', onMouseMove);
+                document.removeEventListener('mouseup', onMouseUp);
+                element.style.zIndex = ''; // Reset z-index
+
+                // Save the position to localStorage
+                const position = {
+                    left: element.style.left,
+                    top: element.style.top,
+                };
+                localStorage.setItem(key, JSON.stringify(position));
+            }
+        }
+
+        // Make headings and images draggable and persistent
+        makeDraggable(document.querySelector('.main-heading'), 'main-heading-position');
+        makeDraggable(document.querySelector('.subheading-container'), 'subheading-position');
+        makeDraggable(document.querySelector('.picture img'), 'image-position');
+    </script>
 </body>
 </html>
