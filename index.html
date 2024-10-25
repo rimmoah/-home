@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Password Protected Page</title>
+    <title>Main Page</title>
 
     <!-- Import Source Sans Pro from Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
@@ -37,11 +37,7 @@
             color: #007BFF;
         }
 
-        .password-prompt {
-            display: none;
-        }
-
-        /* Add some spacing and styling for the logout button */
+        /* Styling for the optional logout button */
         .logout-btn {
             margin-top: 20px;
             padding: 10px 20px;
@@ -55,63 +51,13 @@
             background-color: #0056b3;
         }
     </style>
-
-    <script>
-        // A simple SHA-256 hashing function (using Web Crypto API)
-        async function hashPassword(password) {
-            const msgUint8 = new TextEncoder().encode(password); // encode as (utf-8) Uint8Array
-            const hashBuffer = await crypto.subtle.digest('SHA-256', msgUint8); // hash the message
-            const hashArray = Array.from(new Uint8Array(hashBuffer)); // convert buffer to byte array
-            return hashArray.map(b => b.toString(16).padStart(2, '0')).join(''); // convert bytes to hex string
-        }
-
-        async function checkPassword() {
-            // Check if the user has already entered the correct password before
-            if (localStorage.getItem("authenticated") === "true") {
-                document.getElementById("content").style.display = "block";
-                document.getElementById("password-prompt").style.display = "none";
-                return; // No need to ask for the password again
-            }
-
-            // Prompt for the password
-            var password = prompt("Please enter the password:");
-            const hashedPassword = await hashPassword(password);
-            const correctHash = "bdd65dcd9f231498fa89dad79b0e7263536b90125bd7f2a4900c5f7e23552a10"; // Replace with your hashed password
-            if (hashedPassword === correctHash) {
-                document.getElementById("content").style.display = "block";
-                document.getElementById("password-prompt").style.display = "none";
-                // Store a flag in localStorage to avoid asking again
-                localStorage.setItem("authenticated", "true");
-            } else {
-                alert("Incorrect password. Access denied.");
-            }
-        }
-
-        function logout() {
-            // Clear the authentication status
-            localStorage.removeItem("authenticated");
-            alert("You have been logged out.");
-            location.reload(); // Reload the page to prompt for password again
-        }
-
-        window.onload = function() {
-            checkPassword();
-        };
-    </script>
 </head>
 <body>
-    <div id="password-prompt">
-        <h1>Enter Password to Access Content</h1>
-    </div>
-
-    <div class="container" id="content" style="display:none;">
+    <div class="container">
         <div class="heading"><a href="braais.html">Braais</a></div>
         <div class="heading"><a href="fireplaces.html">Fireplaces</a></div>
         <div class="heading"><a href="firepits.html">Firepits</a></div>
         <div class="heading"><a href="accessories.html">Accessories</a></div>
-
-        <!-- Logout Button -->
-        <button class="logout-btn" onclick="logout()">Log Out</button>
     </div>
 </body>
 </html>
